@@ -1,9 +1,9 @@
 "use client";
 
 import type React from "react";
-import {useState, useEffect} from "react";
+import {useEffect} from "react";
 import {Link, useLocation} from "react-router-dom";
-import {Zap, Mail, Phone, MapPin, Linkedin, Instagram, ChevronRight, Send, Facebook} from "lucide-react";
+import {Zap, Mail, Phone, MapPin, Linkedin, Instagram, ChevronRight, Facebook} from "lucide-react";
 
 interface QuickLink {
     name: string;
@@ -45,13 +45,6 @@ const ScrollToTop: React.FC = () => {
 
 export const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear();
-    const [email, setEmail] = useState<string>("");
-
-    const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log("Subscribed with:", email);
-        setEmail("");
-    };
 
     return (
         <>
@@ -75,28 +68,6 @@ export const Footer: React.FC = () => {
                                 Empowering brands and engineering futures through innovative digital solutions. We help
                                 businesses grow with cutting-edge technology and design-driven experiences.
                             </p>
-
-                            {/* Newsletter Subscription */}
-                            <div className="mt-6">
-                                <h3 className="text-lg font-semibold mb-3 text-blue-400">Stay Updated</h3>
-                                <form onSubmit={handleSubscribe} className="flex flex-col gap-2">
-                                    <input
-                                        type="email"
-                                        placeholder="Enter your email"
-                                        className="flex h-9 w-full rounded-md border border-gray-600 bg-slate-800 px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50 text-white"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        required
-                                    />
-                                    <button
-                                        type="submit"
-                                        className="inline-flex items-center justify-center h-9 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-md transition-colors"
-                                    >
-                                        <Send className="h-4 w-4 mr-2" />
-                                        Subscribe
-                                    </button>
-                                </form>
-                            </div>
                         </div>
 
                         {/* Quick Links */}
